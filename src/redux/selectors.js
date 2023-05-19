@@ -8,14 +8,6 @@ export const selectError = state => state.contacts.error;
 
 export const selectFilterQuery = state => state.filter.query;
 
-// export const selectVisibleContacts = state => {
-//   const contacts = selectContacts(state);
-//   const query = selectFilterQuery(state);
-//   return contacts.filter(({ name }) =>
-//     name.toLowerCase().includes(query.toLowerCase())
-//   );
-// };
-
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectFilterQuery],
   (contacts, query) => {
