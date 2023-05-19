@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
-import { getContacts } from '../../redux/selectors';
+import { addContact } from '../../redux/operations';
+import { selectContacts } from '../../redux/selectors';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import css from './ContactForm.module.css';
 
@@ -10,7 +10,7 @@ function ContactForm() {
   const [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const checkDuplicate = newName => {
     return contacts.find(({ name }) => name === newName);
